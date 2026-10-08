@@ -7,11 +7,11 @@ import { toast } from "react-toastify";
 const Signuppage = () => {
 
   const onsubmit = async (
-    e: React.SubmitEvent<HTMLElement>
+    e: React.SubmitEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
 
-    const formdata = new FormData(e.target);
+    const formdata = new FormData(e.currentTarget);
     const user = Object.fromEntries(formdata.entries());
 
     const { data, error } = await signUp.email({
