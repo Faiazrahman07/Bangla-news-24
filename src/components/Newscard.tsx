@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+interface News{
+  id: string;
+  imageUrl: string;
+  imageAlt: string;
+  category: string;
+  title: string;
+  description: string;
+};
 
-const Newscard = ({ news}) => {
+const Newscard = ({ news} : { news: News }) => {
   return (
   <Link href={`/news/${news.id}`}>
     <div className="card bg-base-100 w-full h-full shadow-sm ">

@@ -1,12 +1,16 @@
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
+type News = {
+  id: string;
+  title: string;
+};
 const marqueelink =async()=>{
           const res= await  fetch('https://news-api-v2.vercel.app/api/news?limit=10');
           const result = await res.json();
           return result.data;
 }
 const Marquee = async () => {
-   const data = await marqueelink();
+   const data :News = await marqueelink();
   return (
     <div className="bg-red-600 my-2 text-white ">
     <div className="flex">

@@ -2,6 +2,21 @@ import MainNews from "@/components/MainNews";
 import Mostread from "@/components/Mostread";
 import Newscard from "@/components/Newscard";
 
+interface News {
+  id: string;
+  imageUrl: string;
+  imageAlt: string;
+  category: string;
+  title: string;
+  description: string;
+};
+
+interface Section{
+  id: string;
+  title: string;
+  articles: News[];
+};
+
 const homelink = async () => {
   const res = await fetch(
     "https://news-api-v2.vercel.app/api/news/sections"
@@ -9,7 +24,7 @@ const homelink = async () => {
 
   const result = await res.json();
 
-  const section = result.data;
+  const section :Section[]= result.data;
 
   const firstnews = section[0].articles;
   const othernews = section.slice(1);

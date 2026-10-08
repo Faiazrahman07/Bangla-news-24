@@ -1,6 +1,8 @@
 import Link from "next/link";
-
-const mostreadlinks= async () => {
+type News = { id: string;
+   title: string; 
+  };
+const mostreadlinks= async (): Promise<News[]> => {
     const res = await fetch('https://news-api-v2.vercel.app/api/news/most-read');
     const result =  await res.json();
     return result.data;

@@ -11,10 +11,11 @@ const Signinpage = () => {
     e.preventDefault();
 
     const formdata = new FormData(e.target);
-    const user = Object.fromEntries(formdata.entries());
+    const user = Object.fromEntries(formdata.entries()) 
 
     const { data, error } = await signIn.email({
-      ...user,
+       email: user.email as string,
+  password: user.password as string,
       rememberMe: true,
       callbackURL: '/',
     });

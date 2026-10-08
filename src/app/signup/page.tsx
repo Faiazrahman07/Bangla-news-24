@@ -15,7 +15,10 @@ const Signuppage = () => {
     const user = Object.fromEntries(formdata.entries());
 
     const { data, error } = await signUp.email({
-      ...user,
+      name: user.name as string,
+      image : user.image as string,
+  email: user.email as string,
+  password: user.password as string,
       callbackURL: '/',
     });
 
